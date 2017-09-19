@@ -39,7 +39,7 @@ int main(int argc, char* argv[]) {
     const u_char* packet;
     int res = pcap_next_ex(handle, &header, &packet);
     int no=1;
-    const char *payload; /* Packet payload */
+    unsigned char *payload; /* Packet payload */
 
     u_int size_ip;
     u_short size_tcp;
@@ -115,7 +115,7 @@ int main(int argc, char* argv[]) {
     printf("\n");
 
     //data
-    payload = (char *)(packet + SIZE_ETHERNET + size_ip + size_tcp);
+    payload = (unsigned char *)(packet + SIZE_ETHERNET + size_ip + size_tcp);
     int i=0;
     if(payload[i]!='\0')
     {
