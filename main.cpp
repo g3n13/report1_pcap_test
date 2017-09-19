@@ -21,7 +21,8 @@ int main(int argc, char* argv[]) {
     usage();
     return -1;
   }
-
+  const char* name = "성종진";
+  printf("[sub26_2017]pcap_test[%s]", name);
   char* dev = argv[1];
   char errbuf[PCAP_ERRBUF_SIZE];
   pcap_t* handle = pcap_open_live(dev, BUFSIZ, 1, 1000, errbuf);
@@ -119,7 +120,7 @@ int main(int argc, char* argv[]) {
     if(payload[i]!='\0')
     {
 	for(i=0;i<16;i++)
-		printf("%.2x ", payload[i]);
+		printf("%02x ", payload[i]);
     }
     printf("\n\n");
     printf("---------------------------------\n\n");
